@@ -18,6 +18,7 @@ component {
 		this.offSet= getTimeZoneInfo().utcTotalOffset;
 		return this;
 	}
+	
 	//  ---------------------------------------------------------------------------------------------------------- 
 	//  ITEM METHODS 
 	//  https://docs.recombee.com/api.html#items 
