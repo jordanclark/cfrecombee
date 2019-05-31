@@ -1,0 +1,40 @@
+{
+    "name":"cfrecombee",
+    "slug":"cfrecombee",
+    "version":"0.5.0",
+    "author":"Jordan Clark <jordanclark@gmail.com>",
+    "keywords":[
+        "recombee",
+        "personalization",
+        "recommendations",
+        "recommender",
+        "api",
+        "rest"
+    ],
+    "shortDescription":"API client for Google Recaptcha v2",
+    "type":"modules",
+    "location":"jordanclark/cfrecombee#v0.5.0",
+    "repository":{
+        "URL":"https://github.com/jordanclark/cfrecombee.git",
+        "type":"GIT"
+    },
+    "homepage":"https://github.com/jordanclark/cfrecombee",
+    "bugs":"https://github.com/jordanclark/cfrecombee/issues",
+    "license":[
+        {
+            "type":"Apache-2.0",
+            "URL":"https://github.com/jordanclark/cfrecombee/blob/master/LICENSE"
+        }
+    ],
+    "private":false,
+    "ignore":[
+        "**/.*",
+        "/test/",
+        "/tests/"
+    ],
+    "scripts":{
+        "postVersion":"package set location='jordanclark/cfrecombee#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push --follow-tags"
+    }
+}
