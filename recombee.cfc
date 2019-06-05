@@ -7,7 +7,7 @@ component {
 	,	string defaultDatabaseId= ""
 	,	numeric httpTimeOut= 120
 	,	boolean debug= ( request.debug ?: false )
-	,	numeric timeSync= server.recombeeTimeSync ?: 0;
+	,	numeric timeSync= server.recombeeTimeSync ?: 0
 	) {
 		this.secretKey= arguments.secretKey;
 		this.apiUrl= arguments.apiUrl;
