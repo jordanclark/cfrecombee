@@ -14,6 +14,7 @@ component {
 		this.defaultDatabaseId= arguments.defaultDatabaseId;
 		this.httpTimeOut= arguments.httpTimeOut;
 		this.debug= arguments.debug;
+		this.timeSync= arguments.timeSync;
 		this.epoch= createDate(1970,1,1);
 		this.offSet= getTimeZoneInfo().utcTotalOffset;
 		return this;
