@@ -672,7 +672,7 @@ component {
 		}
 		//  HMAC 
 		out.requestUrl &= ( find( "?", out.requestUrl ) ? "&" : "?" );
-		out.requestUrl &= "hmac_timestamp=" & ( dateDiff( "s", this.epoch, dateAdd("s", this.offset, now() ) ) + server.recombeeTimeSync );
+		out.requestUrl &= "hmac_timestamp=" & ( dateDiff( "s", this.epoch, dateAdd("s", this.offset, now() ) ) + this.timeSync );
 		out.requestUrl &= "&hmac_sign=" & hashSign( out.requestUrl );
 		out.requestUrl= this.apiUrl & out.requestUrl;
 		this.debugLog( "API: #uCase( out.verb )#: #out.requestUrl#" );
@@ -715,8 +715,9 @@ component {
 				out.success= false;
 				out.error= out.response.error;
 				if ( reFindNoCase( "Token has expired .+ you are -?[0-9]+s off", out.error ) ) {
-					server.recombeeTimeSync += reReplaceNoCase( out.error, ".+you are (\-?[0-9]+)s off.*", "\1" );
-					this.debugLog( "Changed time sync to: " & server.recombeeTimeSync );
+					this.timeSync += reReplaceNoCase( out.error, ".+you are (\-?[0-9]+)s off.*", "\1" );
+					this.debugLog( "Changed time sync to: " & this.timeSync );
+					server.recombeeTimeSync = this.timeSync;
 				}
 			} else if ( isStruct( out.response ) && structKeyExists( out.response, "status" ) && out.response.status == 400 ) {
 				out.success= false;
