@@ -20,10 +20,10 @@ component {
 		return this;
 	}
 	
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  ITEM METHODS 
-	//  https://docs.recombee.com/api.html#items 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// ITEM METHODS 
+	// https://docs.recombee.com/api.html#items 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addItem(
 		string databaseId= this.defaultDatabaseId
@@ -56,11 +56,11 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/items/list/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  ITEM PROPERTIES METHODS 
-	//  https://docs.recombee.com/api.html#item-properties 
-	//  https://docs.recombee.com/api.html#set-item-values 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// ITEM PROPERTIES METHODS 
+	// https://docs.recombee.com/api.html#item-properties 
+	// https://docs.recombee.com/api.html#set-item-values 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addItemProperty(
 		string databaseId= this.defaultDatabaseId
@@ -113,10 +113,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/items/{itemId}", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USERS METHODS 
-	//  https://docs.recombee.com/api.html#users 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USERS METHODS 
+	// https://docs.recombee.com/api.html#users 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUser(
 		string databaseId= this.defaultDatabaseId
@@ -159,11 +159,11 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/list/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USER PROPERTIES METHODS 
-	//  https://docs.recombee.com/api.html#user-properties 
-	//  https://docs.recombee.com/api.html#values-of-user-properties 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USER PROPERTIES METHODS 
+	// https://docs.recombee.com/api.html#user-properties 
+	// https://docs.recombee.com/api.html#values-of-user-properties 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUserProperty(
 		string databaseId= this.defaultDatabaseId
@@ -216,10 +216,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/{userId}", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USER-ITEM DETAIL-VIEW METHODS 
-	//  https://docs.recombee.com/api.html#detail-views 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USER-ITEM DETAIL-VIEW METHODS 
+	// https://docs.recombee.com/api.html#detail-views 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUserDetailView(
 		string databaseId= this.defaultDatabaseId
@@ -261,10 +261,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/{userId}/detailviews/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USER-ITEM PURCHASE METHODS 
-	//  https://docs.recombee.com/api.html#purchases 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USER-ITEM PURCHASE METHODS 
+	// https://docs.recombee.com/api.html#purchases 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUserPurchase(
 		string databaseId= this.defaultDatabaseId
@@ -309,10 +309,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/{userId}/purchases/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USER-ITEM RATING METHODS 
-	//  https://docs.recombee.com/api.html#ratings 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USER-ITEM RATING METHODS 
+	// https://docs.recombee.com/api.html#ratings 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUserRating(
 		string databaseId= this.defaultDatabaseId
@@ -354,10 +354,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/{userId}/ratings/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USER-ITEM CART ADDITION METHODS 
-	//  https://docs.recombee.com/api.html#cart-additions 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USER-ITEM CART ADDITION METHODS 
+	// https://docs.recombee.com/api.html#cart-additions 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUserCartAddition(
 		string databaseId= this.defaultDatabaseId
@@ -400,10 +400,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/{userId}/cartadditions/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  USER-ITEM BOOKMARK METHODS 
-	//  https://docs.recombee.com/api.html#bookmarks 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// USER-ITEM BOOKMARK METHODS 
+	// https://docs.recombee.com/api.html#bookmarks 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addUserBookmark(
 		string databaseId= this.defaultDatabaseId
@@ -444,10 +444,10 @@ component {
 		return this.runRequest( api= "GET /{databaseId}/users/{userId}/bookmarks/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  RECOMMENDATIONS METHODS 
-	//  https://docs.recombee.com/api.html#recommendations 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// RECOMMENDATIONS METHODS 
+	// https://docs.recombee.com/api.html#recommendations 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function getUserRecommendations(
 		string databaseId= this.defaultDatabaseId
@@ -519,11 +519,11 @@ component {
 		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  SERIES METHODS 
-	//  https://docs.recombee.com/api.html#series-definition 
-	//  https://docs.recombee.com/api.html#series-items 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// SERIES METHODS 
+	// https://docs.recombee.com/api.html#series-definition 
+	// https://docs.recombee.com/api.html#series-items 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function addSeries(
 		string databaseId= this.defaultDatabaseId
@@ -579,9 +579,9 @@ component {
 		return this.runRequest( api= "DELETE /{databaseId}/series/{seriesId}/items/", argumentCollection= arguments );
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  MISC METHODS 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// MISC METHODS 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function deleteDatabase(
 		string databaseId= this.defaultDatabaseId
@@ -627,9 +627,9 @@ component {
 		return out;
 	}
 
-	//  ---------------------------------------------------------------------------------------------------------- 
-	//  API / PRIVATE METHODS 
-	//  ---------------------------------------------------------------------------------------------------------- 
+	// ---------------------------------------------------------------------------------------------------------- 
+	// API / PRIVATE METHODS 
+	// ---------------------------------------------------------------------------------------------------------- 
 
 	function runRequest( required string api, array batch ) {
 		if ( structKeyExists( arguments, "batch" ) && isArray( arguments.batch ) ) {
@@ -654,9 +654,9 @@ component {
 		,	requestUrl= listRest( arguments.api, " " )
 		};
 		structDelete( out.args, "api" );
-		//  replace {var} in url 
+		// replace {var} in url 
 		for ( item in out.args ) {
-			//  strip NULL values 
+			// strip NULL values 
 			if ( isNull( out.args[ item ] ) ) {
 				structDelete( out.args, item );
 			} else if ( isSimpleValue( arguments[ item ] ) && arguments[ item ] == "null" ) {
@@ -671,7 +671,7 @@ component {
 		} else if ( !structIsEmpty( out.args ) ) {
 			out.body= serializeJSON( out.args );
 		}
-		//  HMAC 
+		// HMAC 
 		out.requestUrl &= ( find( "?", out.requestUrl ) ? "&" : "?" );
 		out.requestUrl &= "hmac_timestamp=" & ( dateDiff( "s", this.epoch, dateAdd("s", this.offset, now() ) ) + this.timeSync );
 		out.requestUrl &= "&hmac_sign=" & hashSign( out.requestUrl );
@@ -703,7 +703,7 @@ component {
 		} else if ( left( out.statusCode, 1 ) == 2 ) {
 			out.success= true;
 		}
-		//  parse response 
+		// parse response 
 		try {
 			out.response= deserializeJSON( out.response );
 			if ( isNull( out.response ) ) {
@@ -748,7 +748,7 @@ component {
 		structDelete( arguments, "databaseId" );
 		structDelete( arguments, "batch" );
 		structDelete( arguments, "api" );
-		//  replace {var} in url, strip nulls and build params object 
+		// replace {var} in url, strip nulls and build params object 
 		for ( item in arguments ) {
 			if ( isNull( arguments[ item ] ) ) {
 				structDelete( arguments, item );
