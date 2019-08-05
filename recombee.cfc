@@ -228,6 +228,7 @@ component {
 	,	string timestamp
 	,	numeric duration
 	,	boolean cascadeCreate
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -275,6 +276,7 @@ component {
 	,	numeric amount
 	,	numeric price
 	,	numeric profit
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -321,6 +323,7 @@ component {
 	,	string timestamp
 	,	numeric rating
 	,	boolean cascadeCreate
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -367,6 +370,7 @@ component {
 	,	boolean cascadeCreate
 	,	numeric amount
 	,	numeric price
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -411,6 +415,7 @@ component {
 	,	required string itemId
 	,	string timestamp
 	,	boolean cascadeCreate
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
