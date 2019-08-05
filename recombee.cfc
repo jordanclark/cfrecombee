@@ -462,6 +462,7 @@ component {
 	,	string booster
 	,	boolean cascadeCreate
 	,	string scenario
+	,	string logic
 	,	boolean returnProperties= false
 	,	string includedProperties
 	,	numeric diversity
@@ -473,7 +474,7 @@ component {
 		if ( len( arguments.includedProperties ) ) {
 			arguments.returnProperties= true;
 		}
-		return this.runRequest( api= "GET /{databaseId}/users/{userId}/recomms/", argumentCollection= arguments );
+		return this.runRequest( api= "GET /{databaseId}/recomms/users/{userId}/items/", argumentCollection= arguments );
 	}
 
 	function getItemRecommendations(
@@ -497,31 +498,7 @@ component {
 		if ( len( arguments.includedProperties ) ) {
 			arguments.returnProperties= true;
 		}
-		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
-	}
-
-	function getItemRecommendations(
-		string databaseId= this.defaultDatabaseId
-	,	required string itemId
-	,	required numeric count
-	,	string targetUserId
-	,	numeric userImpact
-	,	string filter
-	,	string booster
-	,	boolean cascadeCreate
-	,	string scenario
-	,	boolean returnProperties= false
-	,	string includedProperties
-	,	numeric diversity
-	,	string minRelevance
-	,	numeric rotationRate
-	,	numeric rotationTime
-	,	array batch
-	) {
-		if ( len( arguments.includedProperties ) ) {
-			arguments.returnProperties= true;
-		}
-		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
+		return this.runRequest( api= "POST /{databaseId}/recomms/items/{itemId}/items/", argumentCollection= arguments );
 	}
 
 	// ---------------------------------------------------------------------------------------------------------- 
@@ -658,6 +635,7 @@ component {
 		,	verb= listFirst( arguments.api, " " )
 		,	requestUrl= listRest( arguments.api, " " )
 		};
+
 		structDelete( out.args, "api" );
 		// replace {var} in url 
 		for ( item in out.args ) {
