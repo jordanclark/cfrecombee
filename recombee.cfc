@@ -228,6 +228,7 @@ component {
 	,	string timestamp
 	,	numeric duration
 	,	boolean cascadeCreate
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -275,6 +276,7 @@ component {
 	,	numeric amount
 	,	numeric price
 	,	numeric profit
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -321,6 +323,7 @@ component {
 	,	string timestamp
 	,	numeric rating
 	,	boolean cascadeCreate
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -367,6 +370,7 @@ component {
 	,	boolean cascadeCreate
 	,	numeric amount
 	,	numeric price
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -411,6 +415,7 @@ component {
 	,	required string itemId
 	,	string timestamp
 	,	boolean cascadeCreate
+	,	string recommId
 	,	array batch
 	) {
 		arguments.timestamp= this.zDateFormat( arguments.timestamp ?: "" );
@@ -457,6 +462,7 @@ component {
 	,	string booster
 	,	boolean cascadeCreate
 	,	string scenario
+	,	string logic
 	,	boolean returnProperties= false
 	,	string includedProperties
 	,	numeric diversity
@@ -468,7 +474,7 @@ component {
 		if ( len( arguments.includedProperties ) ) {
 			arguments.returnProperties= true;
 		}
-		return this.runRequest( api= "GET /{databaseId}/users/{userId}/recomms/", argumentCollection= arguments );
+		return this.runRequest( api= "GET /{databaseId}/recomms/users/{userId}/items/", argumentCollection= arguments );
 	}
 
 	function getItemRecommendations(
@@ -492,31 +498,7 @@ component {
 		if ( len( arguments.includedProperties ) ) {
 			arguments.returnProperties= true;
 		}
-		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
-	}
-
-	function getItemRecommendations(
-		string databaseId= this.defaultDatabaseId
-	,	required string itemId
-	,	required numeric count
-	,	string targetUserId
-	,	numeric userImpact
-	,	string filter
-	,	string booster
-	,	boolean cascadeCreate
-	,	string scenario
-	,	boolean returnProperties= false
-	,	string includedProperties
-	,	numeric diversity
-	,	string minRelevance
-	,	numeric rotationRate
-	,	numeric rotationTime
-	,	array batch
-	) {
-		if ( len( arguments.includedProperties ) ) {
-			arguments.returnProperties= true;
-		}
-		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
+		return this.runRequest( api= "POST /{databaseId}/recomms/items/{itemId}/items/", argumentCollection= arguments );
 	}
 
 	// ---------------------------------------------------------------------------------------------------------- 
@@ -592,7 +574,7 @@ component {
 	function batch(
 		string databaseId= this.defaultDatabaseId
 	,	required array requests
-		 boolean distinctRecomms
+	,	boolean distinctRecomms
 	) {
 		var out= this.runRequest( api= "POST /{databaseId}/batch/", argumentCollection= arguments );
 		out.batchSuccess= true;
@@ -653,6 +635,7 @@ component {
 		,	verb= listFirst( arguments.api, " " )
 		,	requestUrl= listRest( arguments.api, " " )
 		};
+
 		structDelete( out.args, "api" );
 		// replace {var} in url 
 		for ( item in out.args ) {
@@ -762,7 +745,7 @@ component {
 			}
 		}
 		this.debugLog( "API Add Batch: #uCase( out.method )#: #out.path#" );
-		if ( request.debug && request.dump ) {
+		if ( this.debug ) {
 			this.debugLog( out );
 		}
 		arrayAppend( b, out );
