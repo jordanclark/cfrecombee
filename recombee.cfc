@@ -592,7 +592,7 @@ component {
 	function batch(
 		string databaseId= this.defaultDatabaseId
 	,	required array requests
-		 boolean distinctRecomms
+	,	boolean distinctRecomms
 	) {
 		var out= this.runRequest( api= "POST /{databaseId}/batch/", argumentCollection= arguments );
 		out.batchSuccess= true;
@@ -762,7 +762,7 @@ component {
 			}
 		}
 		this.debugLog( "API Add Batch: #uCase( out.method )#: #out.path#" );
-		if ( request.debug && request.dump ) {
+		if ( this.debug ) {
 			this.debugLog( out );
 		}
 		arrayAppend( b, out );
