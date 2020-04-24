@@ -1,14 +1,15 @@
 component {
-	cfprocessingdirective( preserveCase=true );
+	// cfprocessingdirective( preserveCase=true );
 
 	function init(
 		required string secretKey
 	,	required string apiUrl= "https://rapi.recombee.com"
 	,	string defaultDatabaseId= ""
 	,	numeric httpTimeOut= 120
-	,	boolean debug= ( request.debug ?: false )
 	,	numeric timeSync= server.recombeeTimeSync ?: 0
+	,	boolean debug
 	) {
+		arguments.debug = ( arguments.debug ?: request.debug ?: false );
 		this.secretKey= arguments.secretKey;
 		this.apiUrl= arguments.apiUrl;
 		this.defaultDatabaseId= arguments.defaultDatabaseId;
@@ -495,30 +496,6 @@ component {
 		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
 	}
 
-	function getItemRecommendations(
-		string databaseId= this.defaultDatabaseId
-	,	required string itemId
-	,	required numeric count
-	,	string targetUserId
-	,	numeric userImpact
-	,	string filter
-	,	string booster
-	,	boolean cascadeCreate
-	,	string scenario
-	,	boolean returnProperties= false
-	,	string includedProperties
-	,	numeric diversity
-	,	string minRelevance
-	,	numeric rotationRate
-	,	numeric rotationTime
-	,	array batch
-	) {
-		if ( len( arguments.includedProperties ) ) {
-			arguments.returnProperties= true;
-		}
-		return this.runRequest( api= "POST /{databaseId}/items/{itemId}/recomms/", argumentCollection= arguments );
-	}
-
 	// ---------------------------------------------------------------------------------------------------------- 
 	// SERIES METHODS 
 	// https://docs.recombee.com/api.html#series-definition 
@@ -778,7 +755,12 @@ component {
 				request.log( arguments.input );
 			}
 		} else if( this.debug ) {
-			cftrace( text=( isSimpleValue( arguments.input ) ? arguments.input : "" ), var=arguments.input, category="recombee", type="information" );
+			var info= ( isSimpleValue( arguments.input ) ? arguments.input : serializeJson( arguments.input ) );
+			cftrace(
+				var= "info"
+			,	category= "recombee"
+			,	type= "information"
+			);
 		}
 		return;
 	}
