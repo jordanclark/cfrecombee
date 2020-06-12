@@ -646,7 +646,7 @@ component {
 		if ( out.verb == "GET" ) {
 			out.requestUrl &= this.structToQueryString( out.args, true );
 		} else if ( !structIsEmpty( out.args ) ) {
-			out.body= serializeJSON( out.args );
+			out.body= serializeJSON( out.args, false, false );
 		}
 		// HMAC 
 		out.requestUrl &= ( find( "?", out.requestUrl ) ? "&" : "?" );
